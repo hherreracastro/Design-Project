@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbNLineModelStoreContainer" CdmEntityContainer="dbNLineEntities">
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="dbNLineModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
