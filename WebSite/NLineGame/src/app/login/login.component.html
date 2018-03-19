@@ -1,0 +1,9 @@
+<button *ngIf="!user && visible" class="loginBtn loginBtn--google" (click)="signIn()">
+  Login con Google
+</button>
+
+<img *ngIf="user" class="rounded-circle"  [src]="!user ? '' : user.photoUrl"
+style="width: 40px; height: 40px">
+
+
+

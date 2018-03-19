@@ -26,3 +26,6 @@ WITH (
 );
 ALTER TABLE public."user"
   OWNER TO "usrNLine";
+  
+  ALTER TABLE public."user"
+  ADD COLUMN "photoUrl" text;

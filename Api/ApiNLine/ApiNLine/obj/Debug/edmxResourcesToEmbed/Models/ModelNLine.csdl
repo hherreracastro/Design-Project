@@ -6,6 +6,7 @@
     </Key>
     <Property Name="email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="name" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="photoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="dbNLineEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="user" EntityType="Self.user" />

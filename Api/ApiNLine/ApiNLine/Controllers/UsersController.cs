@@ -9,10 +9,12 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ApiNLine.Models;
+using System.Web.Http.Cors;
 
 namespace ApiNLine.Controllers
 {
     [Route("users")]
+    //[EnableCors(origins:"*", headers:"*", methods:"*")]
     public class UsersController : ApiController
     {
         private dbNLineEntities db = new dbNLineEntities();
@@ -23,7 +25,7 @@ namespace ApiNLine.Controllers
             return db.user;
         }
 
-        // GET: api/Users/5
+        /*// GET: api/Users/5
         [ResponseType(typeof(user))]
         public IHttpActionResult Getuser(string id)
         {
@@ -34,9 +36,9 @@ namespace ApiNLine.Controllers
             }
 
             return Ok(user);
-        }
+        }*/
 
-        // PUT: api/Users/5
+        /*// PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult Putuser(string id, user user)
         {
@@ -69,9 +71,41 @@ namespace ApiNLine.Controllers
             }
 
             return StatusCode(HttpStatusCode.NoContent);
+        }*/
+
+        [HttpPost]
+        [Route("users/login")]
+        public IHttpActionResult Login([FromBody] user user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (userExists(user.email))
+            {
+                db.Entry(user).State = EntityState.Modified;
+            }
+            else
+            {
+                db.user.Add(user);
+            }
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                return InternalServerError(ex);
+                
+            }
+
+            return Ok();
         }
 
-        // POST: api/Users
+        /*// POST: api/Users
         [ResponseType(typeof(user))]
         public IHttpActionResult Postuser([FromBody]user user)
         {
@@ -99,9 +133,9 @@ namespace ApiNLine.Controllers
             }
 
             return CreatedAtRoute("DefaultApi", new { id = user.email }, user);
-        }
+        }*/
 
-        // DELETE: api/Users/5
+        /*// DELETE: api/Users/5
         [ResponseType(typeof(user))]
         public IHttpActionResult Deleteuser(string id)
         {
@@ -115,7 +149,7 @@ namespace ApiNLine.Controllers
             db.SaveChanges();
 
             return Ok(user);
-        }
+        }*/
 
         protected override void Dispose(bool disposing)
         {

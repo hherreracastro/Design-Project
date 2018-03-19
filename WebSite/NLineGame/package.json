@@ -21,10 +21,21 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@types/gapi.auth2": "^0.0.32",
+    "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
+  "keywords": [
+    "google",
+    "sign in",
+    "signin2",
+    "gapi",
+    "angular"
+  ],
   "devDependencies": {
     "@angular/cli": "~1.7.0",
     "@angular/compiler-cli": "^5.2.0",

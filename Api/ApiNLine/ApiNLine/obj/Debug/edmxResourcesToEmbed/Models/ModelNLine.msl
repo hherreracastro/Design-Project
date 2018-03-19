@@ -4,6 +4,7 @@
     <EntitySetMapping Name="user">
       <EntityTypeMapping TypeName="dbNLineModel.user">
         <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="photoUrl" ColumnName="photoUrl" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
