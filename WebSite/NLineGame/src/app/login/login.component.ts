@@ -63,6 +63,10 @@ cd: ChangeDetectorRef;
 
 signOut(): Promise<any> {
   return new Promise((resolve, reject) => {
+    this.auth2.disconnect();
+    this.user = null;
+    this.cd.detectChanges();
+   /* alert('log out');
     this.auth2.signOut().then((err: any) => {
       if (err) {
         reject(err);
@@ -71,7 +75,7 @@ signOut(): Promise<any> {
       }
     }).catch((err: any) => {
       reject(err);
-    });
+    });*/
   });
 }
 
