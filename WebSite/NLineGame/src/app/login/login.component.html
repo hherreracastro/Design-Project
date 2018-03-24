@@ -1,6 +1,4 @@
-<button *ngIf="!user && visible" class="loginBtn loginBtn--google" (click)="signIn()">
-  Login con Google
-</button>
+<div *ngIf="!user" class="g-signin2" (click)="signIn()"></div>
 
 <div class="dropdown">
 <img *ngIf="user" class="rounded-circle dropdown-toggle"

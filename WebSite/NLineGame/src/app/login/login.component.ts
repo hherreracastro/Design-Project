@@ -11,17 +11,19 @@ declare let gapi: any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public user: User;
+  public user: User = null;
   public visible: boolean;
   protected auth2: any;
 cd: ChangeDetectorRef;
 
   constructor(private ref: ChangeDetectorRef, private userService: UserService) {
+    this.user = null;
     this.visible = false;
     this.cd = ref;
    }
 
   ngOnInit(): void {
+    this.user = null;
     this.visible = false;
     this.cd.detectChanges();
 
@@ -63,19 +65,17 @@ cd: ChangeDetectorRef;
 
 signOut(): Promise<any> {
   return new Promise((resolve, reject) => {
-    this.auth2.disconnect();
-    this.user = null;
-    this.cd.detectChanges();
-   /* alert('log out');
-    this.auth2.signOut().then((err: any) => {
+
+    this.auth2.disconnect().then((err: any) => {
       if (err) {
         reject(err);
       } else {
-        resolve();
+        this.user = null;
+        this.cd.detectChanges();
       }
     }).catch((err: any) => {
       reject(err);
-    });*/
+    });
   });
 }
 
