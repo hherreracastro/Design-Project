@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>N in Line</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="dist/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <h1>N in Line</h1>
+  </header>
+  <section class="section">
+    <div class="section-message"></div>
+    <canvas class="section-canvas"></canvas>
+  </section>
+  
+  <div class="mode">
+    <div class="mode-chooser">
+      <h1>N in line</h1>
+      <p>Welcome to N in line game!</p>
+      <h2>Mode chooser</h2>
+      <label><input class="mode-chooser-input" type="radio" name="mode" value="offline-ai" checked> Human player vs PC</label><br />
+      <label><input class="mode-chooser-input" type="radio" name="mode" value="offline-human"> Human player vs Human player</label><br />
+      <label><input class="mode-chooser-input" type="radio" name="mode" value="offline-human"> PC vs PC</label><br />
+      <button class="mode-chooser-submit">Start game</button>
+    </div>
+  </div>
+  <div class="message hidden">
+    <div class="message-body">
+      <div class="message-body-content"></div>
+      <button class="message-body-dismiss">OK</button>
+    </div>
+  </div>
+  <footer class="footer">
+    By <a href="">Agateite and Héctor</a>. Fork this project at <a href="https://github.com/hherreracastro/Design-Project">GitHub</a>.
+  </footer>
+  <script src="dist/app.js"></script>
+</body>
+
+</html>
