@@ -10,5 +10,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="board">
+      <EntityTypeMapping TypeName="dbNLineModel.board">
+        <MappingFragment StoreEntitySet="board">
+          <ScalarProperty Name="winner" ColumnName="winner" />
+          <ScalarProperty Name="chipColor" ColumnName="chipColor" />
+          <ScalarProperty Name="column" ColumnName="column" />
+          <ScalarProperty Name="row" ColumnName="row" />
+          <ScalarProperty Name="game" ColumnName="game" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -26,5 +26,6 @@ namespace ApiNLine.Models
         }
     
         public virtual DbSet<user> user { get; set; }
+        public virtual DbSet<board> board { get; set; }
     }
 }

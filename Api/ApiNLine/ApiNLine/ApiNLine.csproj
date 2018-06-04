@@ -213,9 +213,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Entities\Board.cs" />
+    <Compile Include="Entities\Column.cs" />
+    <Compile Include="Entities\Row.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\board.cs">
+      <DependentUpon>ModelNLine.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelNLine.Context.cs">
       <AutoGen>True</AutoGen>
@@ -308,7 +315,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

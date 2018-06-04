@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="dbNLineModel.Store" Provider="Npgsql" ProviderManifestToken="9.2.4" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="board">
+          <Key>
+            <PropertyRef Name="game" />
+            <PropertyRef Name="row" />
+            <PropertyRef Name="column" />
+          </Key>
+          <Property Name="game" Type="int4" Nullable="false" />
+          <Property Name="row" Type="int4" Nullable="false" />
+          <Property Name="column" Type="int4" Nullable="false" />
+          <Property Name="chipColor" Type="varchar" MaxLength="300" />
+          <Property Name="winner" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="email" />
@@ -14,6 +26,7 @@
           <Property Name="photoUrl" Type="text" />
         </EntityType>
         <EntityContainer Name="dbNLineModelStoreContainer">
+          <EntitySet Name="board" EntityType="Self.board" Schema="public" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="public" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -30,7 +43,20 @@
         </EntityType>
         <EntityContainer Name="dbNLineEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="user" EntityType="Self.user" />
+          <EntitySet Name="board" EntityType="dbNLineModel.board" />
         </EntityContainer>
+        <EntityType Name="board">
+          <Key>
+            <PropertyRef Name="game" />
+            <PropertyRef Name="row" />
+            <PropertyRef Name="column" />
+          </Key>
+          <Property Name="game" Type="Int32" Nullable="false" />
+          <Property Name="row" Type="Int32" Nullable="false" />
+          <Property Name="column" Type="Int32" Nullable="false" />
+          <Property Name="chipColor" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="winner" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -43,6 +69,17 @@
                 <ScalarProperty Name="photoUrl" ColumnName="photoUrl" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="board">
+            <EntityTypeMapping TypeName="dbNLineModel.board">
+              <MappingFragment StoreEntitySet="board">
+                <ScalarProperty Name="winner" ColumnName="winner" />
+                <ScalarProperty Name="chipColor" ColumnName="chipColor" />
+                <ScalarProperty Name="column" ColumnName="column" />
+                <ScalarProperty Name="row" ColumnName="row" />
+                <ScalarProperty Name="game" ColumnName="game" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

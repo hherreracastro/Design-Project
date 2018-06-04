@@ -10,5 +10,18 @@
   </EntityType>
   <EntityContainer Name="dbNLineEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="user" EntityType="Self.user" />
+    <EntitySet Name="board" EntityType="dbNLineModel.board" />
   </EntityContainer>
+  <EntityType Name="board">
+    <Key>
+      <PropertyRef Name="game" />
+      <PropertyRef Name="row" />
+      <PropertyRef Name="column" />
+    </Key>
+    <Property Name="game" Type="Int32" Nullable="false" />
+    <Property Name="row" Type="Int32" Nullable="false" />
+    <Property Name="column" Type="Int32" Nullable="false" />
+    <Property Name="chipColor" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="winner" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>
